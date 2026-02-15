@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌹👓 Покупки</title>
+  <meta name="color-scheme" content="dark" />
+  <style>
+    :root{
+      --bg:#0b0710;
+      --bg2:#1a0c22;
+      --card:rgba(255,255,255,.07);
+      --line:rgba(255,255,255,.14);
+      --text:#ffeefb;
+      --muted:#e5c4db;
+      --accent:#ff4f9a;
+      --accent2:#8f6bff;
+      --good:#31d0aa;
+      --warn:#ff9f44;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, #471336 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 10%, #2a1951 0%, transparent 55%),
+        linear-gradient(160deg, var(--bg), var(--bg2));
+      min-height:100vh;
+    }
+    .wrap{max-width:1060px;margin:0 auto;padding:24px 14px 42px;}
+    header{display:flex;gap:14px;justify-content:space-between;align-items:end;margin-bottom:16px;}
+    h1{margin:0;font-size:clamp(24px,4.5vw,42px);letter-spacing:.2px;}
+    .sub{margin-top:6px;color:var(--muted);font-size:14px;}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:7px 12px;font-size:13px;white-space:nowrap}
+    .grid{display:grid;grid-template-columns:1.25fr .9fr;gap:12px;}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      backdrop-filter: blur(10px);
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      padding:14px;
+    }
+    .card h2{margin:0 0 10px;font-size:18px}
+
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+    select, input{
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:14px;
+      outline:none;
+    }
+    input{flex:1;min-width:220px}
+
+    .list{display:grid;gap:10px}
+    .item{
+      display:grid;
+      grid-template-columns:56px 1fr;
+      gap:10px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:rgba(255,255,255,.05);
+    }
+    .img{
+      width:56px;height:56px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(255,79,154,.22), rgba(143,107,255,.18));
+      border-right:1px solid rgba(255,255,255,.10);
+    }
+    .img svg{width:30px;height:30px;opacity:.95}
+    .meta{padding:10px 10px 10px 0}
+    .row{display:flex;gap:10px;justify-content:space-between;align-items:center}
+    .name{font-weight:750}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+    .tag{font-size:12px;color:#f4d8ea;border:1px solid rgba(255,255,255,.16);padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.05)}
+    details{margin-top:8px}
+    details summary{cursor:pointer;color:#ffd7ea}
+    .desc{margin-top:8px;color:var(--muted);font-size:13.5px;line-height:1.35}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--text);text-decoration:none;
+      background:rgba(255,255,255,.06);
+      font-size:13px;
+    }
+    .a:hover{border-color:rgba(255,255,255,.28)}
+    .kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .k{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:14px;padding:10px 12px}
+    .k .v{font-weight:800}
+    .footer{margin-top:10px;color:#dcb4cb;font-size:12px}
+    .ok{color:var(--good);font-weight:700}
+    .w{color:var(--warn);font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>🌹👓 Покупки</h1>
+        <div class="sub">Красивый список с рекомендациями под <b>Барселону</b> и <b>Кишинёв</b>.</div>
+      </div>
+      <div class="pill" id="updated"></div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>🧾 Нужно купить</h2>
+        <div class="controls">
+          <select id="city">
+            <option value="all">Все города</option>
+            <option value="barcelona">Барселона</option>
+            <option value="chisinau">Кишинёв</option>
+          </select>
+          <input id="q" placeholder="Поиск: ванна / кухня / бытовая химия…" />
+        </div>
+        <div class="list" id="todo"></div>
+        <div class="footer">Подсказка: описания — это мои субъективные рекомендации (не реклама). Ссылки — удобные поисковые/магазинные.</div>
+      </section>
+
+      <section class="card">
+        <h2>✅ Купили</h2>
+        <div class="kpi" id="kpi"></div>
+        <div class="list" id="done"></div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Data is embedded for GitHub Pages simplicity.
+    const DATA = {
+      updatedAt: new Date().toISOString(),
+      people: {
+        barcelona: ['@sprodan', '@mprodan'],
+        chisinau: ['@Didinap', '@Papuc_Eugen']
+      },
+      todo: [
+        {
+          id: 'bath-cleaner',
+          name: 'Средство для ванны',
+          category: 'бытовая химия',
+          cities: ['barcelona','chisinau'],
+          icon: 'bath',
+          why: {
+            barcelona: {
+              title: 'Я бы брал в Mercadona / Carrefour (не самый дешёвый, а «антинакипь/анти-известь»)',
+              text: 'В Барселоне вода часто жёсткая → лучше средство с пометкой antical / anti-cal. Это реально экономит время на налёте и стёклах.'
+            },
+            chisinau: {
+              title: 'Я бы искал в Linella / Kaufland (или любой супермаркет) с фокусом на «от накипи»',
+              text: 'Главное — чтобы было именно против известкового налёта. По ощущениям это самый заметный апгрейд «ванна всегда чистая».'
+            }
+          },
+          links: {
+            barcelona: [
+              { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=antical' },
+              { label:'Carrefour (поиск)', url:'https://www.carrefour.es/?q=antical' },
+              { label:'Amazon.es (поиск)', url:'https://www.amazon.es/s?k=limpiador+ba%C3%B1o+antical' }
+            ],
+            chisinau: [
+              { label:'Google (поиск)', url:'https://www.google.com/search?q=Chi%C8%99in%C4%83u+antical+cur%C4%83%C8%9Bator+baie' },
+              { label:'Kaufland (поиск)', url:'https://www.google.com/search?q=Kaufland+Chi%C8%99in%C4%83u+cur%C4%83%C8%9Bator+baie+antical' }
+            ]
+          }
+        }
+      ],
+      done: []
+    };
+
+    const ICONS = {
+      bath: `
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 6a3 3 0 0 1 6 0v3" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M4 9h16v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z" stroke="white" stroke-width="1.6"/>
+          <path d="M6 20v2M18 20v2" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M3 12h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>`
+    };
+
+    const cityName = (c) => c === 'barcelona' ? 'Барселона' : c === 'chisinau' ? 'Кишинёв' : c;
+
+    const elTodo = document.getElementById('todo');
+    const elDone = document.getElementById('done');
+    const elUpdated = document.getElementById('updated');
+    const elKpi = document.getElementById('kpi');
+
+    elUpdated.textContent = `Обновлено: ${new Date().toLocaleString('ru-RU')}`;
+
+    const render = () => {
+      const city = document.getElementById('city').value;
+      const q = document.getElementById('q').value.trim().toLowerCase();
+
+      const filterItem = (it) => {
+        const cityOk = city === 'all' || it.cities.includes(city);
+        const qOk = !q || (it.name + ' ' + (it.category||'')).toLowerCase().includes(q);
+        return cityOk && qOk;
+      };
+
+      const card = (it) => {
+        const c = (city === 'all') ? (it.cities[0] || 'barcelona') : city;
+        const why = it.why?.[c];
+        const links = it.links?.[c] || [];
+
+        const cityTags = it.cities.map(x => `<span class="tag">${cityName(x)}</span>`).join('');
+        const catTag = it.category ? `<span class="tag">${it.category}</span>` : '';
+
+        return `
+          <div class="item">
+            <div class="img">${ICONS[it.icon] || ''}</div>
+            <div class="meta">
+              <div class="row">
+                <div class="name">${it.name}</div>
+                <div class="tag">#${it.id}</div>
+              </div>
+              <div class="tags">${cityTags}${catTag}</div>
+              <details>
+                <summary>${why?.title || 'Рекомендация'}</summary>
+                <div class="desc">${why?.text || 'Добавь город в фильтре — покажу конкретнее.'}</div>
+                <div class="links">
+                  ${links.map(l => `<a class="a" href="${l.url}" target="_blank" rel="noopener noreferrer">🔗 ${l.label}</a>`).join('')}
+                </div>
+              </details>
+            </div>
+          </div>
+        `;
+      };
+
+      const todo = DATA.todo.filter(filterItem);
+      elTodo.innerHTML = todo.length ? todo.map(card).join('') : `<div style="color:var(--muted)">Ничего не найдено. Добавь новый товар в чат — и я обновлю сайт.</div>`;
+
+      const done = DATA.done.filter(filterItem);
+      elDone.innerHTML = done.length ? done.map(card).join('') : `<div style="color:var(--muted)">Пока пусто.</div>`;
+
+      const total = DATA.todo.length + DATA.done.length;
+      elKpi.innerHTML = `
+        <div class="k"><div class="v">${DATA.todo.length}</div><div class="t" style="color:var(--muted);font-size:12px">нужно купить</div></div>
+        <div class="k"><div class="v">${DATA.done.length}</div><div class="t" style="color:var(--muted);font-size:12px">купили</div></div>
+        <div class="k"><div class="v">${total}</div><div class="t" style="color:var(--muted);font-size:12px">всего</div></div>
+      `;
+    };
+
+    document.getElementById('city').addEventListener('change', render);
+    document.getElementById('q').addEventListener('input', render);
+
+    render();
+  </script>
+</body>
+</html>
