@@ -147,7 +147,8 @@
           id: 'bath-cleaner',
           name: 'Средство для ванны',
           category: 'бытовая химия',
-          cities: ['barcelona','chisinau'],
+          addedBy: '@Didinap',
+          cities: ['chisinau'],
           icon: 'bath',
           why: {
             barcelona: {
@@ -205,12 +206,16 @@
       };
 
       const card = (it) => {
-        const c = (city === 'all') ? (it.cities[0] || 'barcelona') : city;
+        // If user didn't choose a city, default to the item's city (or addedBy home city) for recommendations.
+        const homeCity = (it.addedBy && Object.entries(DATA.people).find(([,arr]) => arr.includes(it.addedBy))?.[0]) || null;
+        const c = (city === 'all') ? (it.cities[0] || homeCity || 'barcelona') : city;
         const why = it.why?.[c];
         const links = it.links?.[c] || [];
 
         const cityTags = it.cities.map(x => `<span class="tag">${cityName(x)}</span>`).join('');
         const catTag = it.category ? `<span class="tag">${it.category}</span>` : '';
+
+        const byTag = it.addedBy ? `<span class="tag">добавил(а) ${it.addedBy}</span>` : '';
 
         return `
           <div class="item">
@@ -220,7 +225,7 @@
                 <div class="name">${it.name}</div>
                 <div class="tag">#${it.id}</div>
               </div>
-              <div class="tags">${cityTags}${catTag}</div>
+              <div class="tags">${cityTags}${catTag}${byTag}</div>
               <details>
                 <summary>${why?.title || 'Рекомендация'}</summary>
                 <div class="desc">${why?.text || 'Добавь город в фильтре — покажу конкретнее.'}</div>
