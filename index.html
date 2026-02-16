@@ -148,6 +148,122 @@
       },
       todo: [
         {
+          id: 'whole-salmon-mercadona',
+          name: 'Целый лосось (Mercadona)',
+          category: 'рыба',
+          addedBy: '@sprodan',
+          cities: ['barcelona'],
+          icon: 'bath',
+          image: 'https://images.unsplash.com/photo-1544943910-4c1dc44aab44?auto=format&fit=crop&w=600&q=80',
+          primary: {
+            barcelona: { shop: 'Mercadona', price: '≈12–18 €/кг', note: 'целый лосось, ориентир', url: 'https://www.mercadona.es/busqueda?query=salm%C3%B3n%20entero' }
+          },
+          alternatives: {
+            barcelona: [
+              { shop:'Carrefour', price:'≈13–20 €/кг', note:'свежий лосось', url:'https://www.carrefour.es/?q=salm%C3%B3n%20entero' }
+            ]
+          },
+          why: {
+            barcelona: {
+              title: 'Лучше брать целую тушку и порционировать дома',
+              text: 'Обычно так выгоднее по цене за кг и можно сразу сделать стейки/филе на несколько блюд.'
+            }
+          },
+          links: {
+            barcelona: [
+              { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=salm%C3%B3n%20entero' }
+            ]
+          }
+        },
+        {
+          id: 'raw-chicken-for-grill',
+          name: 'Сырая курица для гриля',
+          category: 'мясо',
+          addedBy: '@sprodan',
+          cities: ['barcelona'],
+          icon: 'bath',
+          image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80',
+          primary: {
+            barcelona: { shop: 'Mercadona', price: '≈3.5–6 € / уп.', note: 'pollo para asar', url: 'https://www.mercadona.es/busqueda?query=pollo%20para%20asar' }
+          },
+          alternatives: {
+            barcelona: [
+              { shop:'Carrefour', price:'≈4–7 € / уп.', note:'pollo entero fresco', url:'https://www.carrefour.es/?q=pollo%20entero' }
+            ]
+          },
+          why: {
+            barcelona: {
+              title: 'Ищи свежую тушку/части без маринада',
+              text: 'Так проще сделать свой маринад и контролировать соль/вкус.'
+            }
+          },
+          links: { barcelona: [ { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=pollo%20para%20asar' } ] }
+        },
+        {
+          id: 'hummus',
+          name: 'Хумус',
+          category: 'готовые продукты',
+          addedBy: '@sprodan',
+          cities: ['barcelona'],
+          icon: 'bath',
+          image: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=600&q=80',
+          primary: {
+            barcelona: { shop: 'Mercadona', price: '≈1.5–2.5 €', note: 'hummus классический', url: 'https://www.mercadona.es/busqueda?query=hummus' }
+          },
+          alternatives: {
+            barcelona: [
+              { shop:'Carrefour', price:'≈1.8–3 €', note:'разные бренды', url:'https://www.carrefour.es/?q=hummus' }
+            ]
+          },
+          why: { barcelona: { title:'Брать классический без добавок', text:'Обычно самый универсальный и стабильный по вкусу.' } },
+          links: { barcelona: [ { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=hummus' } ] }
+        },
+        {
+          id: 'cucumbers',
+          name: 'Огурцы',
+          category: 'овощи',
+          addedBy: '@sprodan',
+          cities: ['barcelona'],
+          icon: 'bath',
+          image: 'https://images.unsplash.com/photo-1604977042946-1eecc30f269e?auto=format&fit=crop&w=600&q=80',
+          primary: {
+            barcelona: { shop: 'Mercadona', price: '≈1.2–2.2 €/кг', note: 'pepino', url: 'https://www.mercadona.es/busqueda?query=pepino' }
+          },
+          alternatives: { barcelona: [ { shop:'Carrefour', price:'≈1.5–2.5 €/кг', note:'pepino fresco', url:'https://www.carrefour.es/?q=pepino' } ] },
+          why: { barcelona: { title:'Лучше плотные и тёмно-зелёные', text:'Они обычно хрустят лучше и дольше лежат.' } },
+          links: { barcelona: [ { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=pepino' } ] }
+        },
+        {
+          id: 'tomatoes',
+          name: 'Помидоры',
+          category: 'овощи',
+          addedBy: '@sprodan',
+          cities: ['barcelona'],
+          icon: 'bath',
+          image: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80',
+          primary: {
+            barcelona: { shop: 'Mercadona', price: '≈1.8–3.5 €/кг', note: 'tomate ensalada / rama', url: 'https://www.mercadona.es/busqueda?query=tomate' }
+          },
+          alternatives: { barcelona: [ { shop:'Carrefour', price:'≈2–4 €/кг', note:'tomate fresco', url:'https://www.carrefour.es/?q=tomate' } ] },
+          why: { barcelona: { title:'Для салата — tomate ensalada', text:'Обычно баланс цены и вкуса лучше всего.' } },
+          links: { barcelona: [ { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=tomate' } ] }
+        },
+        {
+          id: 'bell-pepper',
+          name: 'Перец',
+          category: 'овощи',
+          addedBy: '@sprodan',
+          cities: ['barcelona'],
+          icon: 'bath',
+          image: 'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600&q=80',
+          primary: {
+            barcelona: { shop: 'Mercadona', price: '≈2–4 €/кг', note: 'pimiento', url: 'https://www.mercadona.es/busqueda?query=pimiento' }
+          },
+          alternatives: { barcelona: [ { shop:'Carrefour', price:'≈2.5–4.5 €/кг', note:'pimiento rojo/verde', url:'https://www.carrefour.es/?q=pimiento' } ] },
+          why: { barcelona: { title:'Красный слаще, зелёный поярче', text:'Можно взять микс для салатов и гриля.' } },
+          links: { barcelona: [ { label:'Mercadona (поиск)', url:'https://www.mercadona.es/busqueda?query=pimiento' } ] }
+        },
+        {
           id: 'herbes-de-provence',
           name: 'Прованские травы',
           category: 'специи',
