@@ -1,80 +1,90 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Меню на неделю + список продуктов</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Меню на неделю • карточки</title>
   <style>
-    :root{--bg:#0f0b16;--bg2:#1f1230;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.18);--text:#fff1fa;--muted:#e5c7da;--acc:#ff5ca8}
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:linear-gradient(150deg,var(--bg),var(--bg2));}
-    .wrap{max-width:1100px;margin:0 auto;padding:20px 14px 40px}
+    :root{--bg:#0f0b16;--bg2:#1f1230;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.18);--text:#fff1fa;--muted:#e5c7da}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui;background:linear-gradient(150deg,var(--bg),var(--bg2));color:var(--text)}
+    .wrap{max-width:1160px;margin:0 auto;padding:18px 14px 40px}
     h1{margin:0 0 6px;font-size:clamp(24px,4vw,40px)} .sub{color:var(--muted);margin-bottom:14px}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px} @media(max-width:920px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
-    .day{border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:10px;background:rgba(255,255,255,.04)}
-    .day h3{margin:0 0 8px;font-size:16px;color:#ffd6ea}
-    .row{margin:5px 0;color:#ffeef9}.lbl{color:#ffb9db;font-weight:700}
-    ul{margin:8px 0 0 18px;padding:0}.small{color:var(--muted);font-size:13px}
-    .k{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;margin:0 6px 6px 0;background:rgba(255,255,255,.06);font-size:12px}
+    .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:12px}@media(max-width:980px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+    .day{margin-bottom:12px}.day h2{margin:0 0 8px;font-size:18px;color:#ffd8ea}
+    .meal{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;background:rgba(255,255,255,.04)}
+    .meal .title{font-weight:700}.meta{font-size:12px;color:#ffd3e7;margin-top:4px}
+    details{margin-top:8px} summary{cursor:pointer;color:#ffdff0}
+    .instr{font-size:14px;color:var(--muted);line-height:1.35;margin-top:7px}
+    ul{margin:8px 0 0 18px;padding:0}
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>🗓️ Меню на 7 дней</h1>
-    <div class="sub">Для @Didinap • Хашимото + ГЭРБ • 3+1 приёма • без каш на завтрак • готовка до 20 мин (AirFryer)</div>
+    <div class="sub">@Didinap • Хашимото + ГЭРБ • 3+1 • каждый приём отдельной карточкой • Ninja AirFryer режим/температура внутри</div>
 
     <div class="grid">
       <section class="card">
-        <div class="day"><h3>День 1</h3><div class="row"><span class="lbl">Завтрак:</span> Омлет 2 яйца + тост + огурец</div><div class="row"><span class="lbl">Обед:</span> Курица AirFryer + гречка + брокколи</div><div class="row"><span class="lbl">Перекус:</span> Йогурт + миндаль</div><div class="row"><span class="lbl">Ужин:</span> Тунец + запечённые кабачки + немного киноа</div></div>
-        <div class="day"><h3>День 2</h3><div class="row"><span class="lbl">Завтрак:</span> Тост + авокадо + яйцо</div><div class="row"><span class="lbl">Обед:</span> Зубатка + рис + тёплая свёкла</div><div class="row"><span class="lbl">Перекус:</span> Груша + орехи</div><div class="row"><span class="lbl">Ужин:</span> Курица + цветная капуста + ложка йогурта</div></div>
-        <div class="day"><h3>День 3</h3><div class="row"><span class="lbl">Завтрак:</span> Йогурт + банан + орехи + яйцо</div><div class="row"><span class="lbl">Обед:</span> Говядина AirFryer + булгур + морковь</div><div class="row"><span class="lbl">Перекус:</span> Яблоко + миндаль</div><div class="row"><span class="lbl">Ужин:</span> Омлет + брокколи</div></div>
-        <div class="day"><h3>День 4</h3><div class="row"><span class="lbl">Завтрак:</span> Яйца + тост + авокадо</div><div class="row"><span class="lbl">Обед:</span> Индейка + кускус + кабачок</div><div class="row"><span class="lbl">Перекус:</span> Груша + йогурт</div><div class="row"><span class="lbl">Ужин:</span> Тунец + тёплые овощи</div></div>
-        <div class="day"><h3>День 5</h3><div class="row"><span class="lbl">Завтрак:</span> Омлет + тост + огурец</div><div class="row"><span class="lbl">Обед:</span> Курица + чечевица + брокколи</div><div class="row"><span class="lbl">Перекус:</span> Йогурт + орехи</div><div class="row"><span class="lbl">Ужин:</span> Рыба + цветная капуста</div></div>
-        <div class="day"><h3>День 6</h3><div class="row"><span class="lbl">Завтрак:</span> Тост + творог/йогурт + яйцо</div><div class="row"><span class="lbl">Обед:</span> Говядина + гречка + морковь</div><div class="row"><span class="lbl">Перекус:</span> Груша</div><div class="row"><span class="lbl">Ужин:</span> Курица + кабачок</div></div>
-        <div class="day"><h3>День 7</h3><div class="row"><span class="lbl">Завтрак:</span> Яйца + тост + авокадо</div><div class="row"><span class="lbl">Обед:</span> Рыба + рис + брокколи</div><div class="row"><span class="lbl">Перекус:</span> Йогурт + яблоко</div><div class="row"><span class="lbl">Ужин:</span> Курица + тёплая свёкла/цветная</div></div>
+
+        <div class="day"><h2>День 1</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Омлет + тост + огурец</div><details><summary>Как готовить</summary><div class="instr">Омлет: 2 яйца + щепотка соли, сковорода 5–6 мин на среднем. Тост подсушить. Огурец свежий. <br>AirFryer не обязателен.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Курица + гречка + брокколи</div><div class="meta">Ninja: AIR FRY • 190°C • 14–16 мин</div><details><summary>Как готовить</summary><div class="instr">Курицу (160–200 г) смазать 1 ч.л. масла, соль/травы. Готовить 14–16 мин, перевернуть в середине. Брокколи: AIR FRY 180°C 8–10 мин. Гречка заранее отварена как гарнир.</div></details></div>
+          <div class="meal"><div class="title">🍎 Перекус: Йогурт + миндаль</div><details><summary>Как готовить</summary><div class="instr">200 г йогурта + 15 г миндаля.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Тунец + кабачки + киноа</div><div class="meta">Ninja: AIR FRY • 185°C • 10–12 мин (кабачки)</div><details><summary>Как готовить</summary><div class="instr">Кабачки кубиком, 1 ч.л. масла, 10–12 мин. Тунец добавить после. Киноа готовая 120–150 г.</div></details></div>
+        </div>
+
+        <div class="day"><h2>День 2</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Тост + авокадо + яйцо</div><details><summary>Как готовить</summary><div class="instr">Яйцо варёное 7–8 мин или жареное. Тост, сверху авокадо.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Зубатка + рис + тёплая свёкла</div><div class="meta">Ninja: AIR FRY • 180°C • 12–14 мин</div><details><summary>Как готовить</summary><div class="instr">Филе рыбы 170–220 г, соль, немного масла. Свёкла ломтиками: AIR FRY 180°C 15 мин. Рис готовый 150–180 г.</div></details></div>
+          <div class="meal"><div class="title">🍏 Перекус: Груша + орехи</div><details><summary>Как готовить</summary><div class="instr">1 груша + 15–20 г орехов.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Курица + цветная капуста + йогурт</div><div class="meta">Ninja: AIR FRY • 190°C • 14–16 мин (курица), 180°C • 10 мин (цветная)</div><details><summary>Как готовить</summary><div class="instr">Курицу отдельно 14–16 мин, цветную капусту 10 мин. Подать с 1 ст.л. йогурта.</div></details></div>
+        </div>
+
+        <div class="day"><h2>День 3</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Йогурт + банан + орехи + яйцо</div><details><summary>Как готовить</summary><div class="instr">Йогурт 200 г, банан 1/2–1 шт, орехи 15 г, яйцо отдельно.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Говядина + булгур + морковь</div><div class="meta">Ninja: AIR FRY • 195°C • 10–13 мин</div><details><summary>Как готовить</summary><div class="instr">Говядина кусочками 170–200 г, готовить до готовности. Морковь палочками: 185°C 12 мин. Булгур готовый 150 г.</div></details></div>
+          <div class="meal"><div class="title">🍎 Перекус: Яблоко + миндаль</div><details><summary>Как готовить</summary><div class="instr">1 яблоко + 15 г миндаля.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Омлет + брокколи</div><div class="meta">Ninja: AIR FRY • 180°C • 8–10 мин (брокколи)</div><details><summary>Как готовить</summary><div class="instr">Омлет на сковороде. Брокколи отдельно в Ninja 8–10 мин.</div></details></div>
+        </div>
+
+        <div class="day"><h2>День 4</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Яйца + тост + авокадо</div><details><summary>Как готовить</summary><div class="instr">2 яйца, тост, 1/2 авокадо.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Индейка + кускус + кабачок</div><div class="meta">Ninja: AIR FRY • 190°C • 13–15 мин</div><details><summary>Как готовить</summary><div class="instr">Индейка 170–200 г. Кабачок 10–12 мин при 185°C. Кускус заранее заварить.</div></details></div>
+          <div class="meal"><div class="title">🍐 Перекус: Груша + йогурт</div><details><summary>Как готовить</summary><div class="instr">Груша + 150–200 г йогурта.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Тунец + тёплые овощи</div><div class="meta">Ninja: AIR FRY • 180°C • 10–12 мин</div><details><summary>Как готовить</summary><div class="instr">Смесь овощей запечь 10–12 мин, добавить тунец в конце.</div></details></div>
+        </div>
+
+        <div class="day"><h2>День 5</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Омлет + тост + огурец</div><details><summary>Как готовить</summary><div class="instr">Повтор дня 1.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Курица + чечевица + брокколи</div><div class="meta">Ninja: AIR FRY • 190°C • 14–16 мин</div><details><summary>Как готовить</summary><div class="instr">Курица в Ninja, брокколи 8–10 мин 180°C. Чечевица готовая 150 г.</div></details></div>
+          <div class="meal"><div class="title">🍎 Перекус: Йогурт + орехи</div><details><summary>Как готовить</summary><div class="instr">Йогурт 200 г + орехи 15 г.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Рыба + цветная капуста</div><div class="meta">Ninja: AIR FRY • 180°C • 12–14 мин (рыба)</div><details><summary>Как готовить</summary><div class="instr">Рыбу и капусту можно параллельно в двух заходах (рыба 12–14, капуста 10).</div></details></div>
+        </div>
+
+        <div class="day"><h2>День 6</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Тост + творог/йогурт + яйцо</div><details><summary>Как готовить</summary><div class="instr">Быстрый сборный завтрак без жарки.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Говядина + гречка + морковь</div><div class="meta">Ninja: AIR FRY • 195°C • 10–13 мин</div><details><summary>Как готовить</summary><div class="instr">Говядина кусочки в один слой. Морковь 185°C 12 мин.</div></details></div>
+          <div class="meal"><div class="title">🍐 Перекус: Груша</div><details><summary>Как готовить</summary><div class="instr">Можно запечь 5–6 мин в Ninja при 170°C, если хочется тёплую.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Курица + кабачок</div><div class="meta">Ninja: AIR FRY • 190°C • 14–16 мин (курица), 185°C • 10–12 мин (кабачок)</div><details><summary>Как готовить</summary><div class="instr">Курицу и кабачок готовить раздельно для лучшей текстуры.</div></details></div>
+        </div>
+
+        <div class="day"><h2>День 7</h2>
+          <div class="meal"><div class="title">🍳 Завтрак: Яйца + тост + авокадо</div><details><summary>Как готовить</summary><div class="instr">Повтор дня 2.</div></details></div>
+          <div class="meal"><div class="title">🍽 Обед: Рыба + рис + брокколи</div><div class="meta">Ninja: AIR FRY • 180°C • 12–14 мин</div><details><summary>Как готовить</summary><div class="instr">Рыба 12–14 мин. Брокколи 8–10 мин. Рис готовый.</div></details></div>
+          <div class="meal"><div class="title">🍎 Перекус: Йогурт + яблоко</div><details><summary>Как готовить</summary><div class="instr">Стандартный перекус.</div></details></div>
+          <div class="meal"><div class="title">🌙 Ужин: Курица + тёплая свёкла/цветная</div><div class="meta">Ninja: AIR FRY • 190°C • 14–16 мин (курица), 180°C • 10–15 мин (овощи)</div><details><summary>Как готовить</summary><div class="instr">Выбери один овощ по самочувствию ЖКТ в этот день.</div></details></div>
+        </div>
       </section>
 
       <aside class="card">
-        <h3 style="margin-top:0">🛒 Список продуктов на неделю</h3>
-        <div class="small">(на 1 человека, ориентир)</div>
-        <h4>Белок</h4>
+        <h3 style="margin-top:0">🛒 Продукты (неделя)</h3>
         <ul>
-          <li>Курица/индейка: 1.8–2.2 кг</li>
-          <li>Рыба (зубатка/белая): 1.2–1.5 кг</li>
-          <li>Тунец консерв.: 3–4 банки</li>
-          <li>Говядина: 700–900 г</li>
-          <li>Яйца: 16–20 шт</li>
-          <li>Йогурт/творог: 2.5–3 кг суммарно</li>
+          <li>Курица/индейка 1.8–2.2 кг</li><li>Рыба 1.2–1.5 кг</li><li>Тунец 3–4 банки</li><li>Говядина 700–900 г</li><li>Яйца 16–20 шт</li><li>Йогурт/творог 2.5–3 кг</li>
+          <li>Гречка, рис, киноа, кускус, булгур, чечевица (по 250–500 г)</li>
+          <li>Брокколи, кабачки, цветная, свёкла, морковь, огурцы</li>
+          <li>Яблоки, груши, бананы, авокадо</li><li>Орехи, тахини, оливковое масло</li>
         </ul>
-        <h4>Крупы/гарниры</h4>
-        <ul>
-          <li>Гречка: 400–500 г</li>
-          <li>Рис: 400–500 г</li>
-          <li>Киноа: 250–300 г</li>
-          <li>Булгур: 250–300 г</li>
-          <li>Кускус: 250–300 г</li>
-          <li>Чечевица: 350–450 г</li>
-          <li>Тост цельнозерн.: 1–2 уп.</li>
-        </ul>
-        <h4>Овощи/фрукты/жиры</h4>
-        <ul>
-          <li>Брокколи: 1.5–2 кг</li>
-          <li>Кабачки: 1.2–1.6 кг</li>
-          <li>Цветная капуста: 1–1.5 кг</li>
-          <li>Свёкла: 0.8–1.2 кг</li>
-          <li>Морковь: 1 кг</li>
-          <li>Огурцы: 0.8–1.2 кг</li>
-          <li>Помидоры: 0.4–0.7 кг (умеренно)</li>
-          <li>Яблоки/груши/бананы: 3.5–4.5 кг суммарно</li>
-          <li>Авокадо: 4–6 шт</li>
-          <li>Орехи/миндаль: 300–400 г</li>
-          <li>Тахини: 1 банка</li>
-          <li>Оливковое масло: 1 бутылка</li>
-          <li>Йодированная соль</li>
-        </ul>
-        <div style="margin-top:10px">
-          <span class="k">Хашимото-friendly</span><span class="k">ГЭРБ-friendly</span><span class="k">AirFryer ≤20 мин</span>
-        </div>
       </aside>
     </div>
   </div>
