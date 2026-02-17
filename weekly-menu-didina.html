@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Меню на неделю + список продуктов</title>
+  <style>
+    :root{--bg:#0f0b16;--bg2:#1f1230;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.18);--text:#fff1fa;--muted:#e5c7da;--acc:#ff5ca8}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:linear-gradient(150deg,var(--bg),var(--bg2));}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px 14px 40px}
+    h1{margin:0 0 6px;font-size:clamp(24px,4vw,40px)} .sub{color:var(--muted);margin-bottom:14px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px} @media(max-width:920px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+    .day{border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:10px;background:rgba(255,255,255,.04)}
+    .day h3{margin:0 0 8px;font-size:16px;color:#ffd6ea}
+    .row{margin:5px 0;color:#ffeef9}.lbl{color:#ffb9db;font-weight:700}
+    ul{margin:8px 0 0 18px;padding:0}.small{color:var(--muted);font-size:13px}
+    .k{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;margin:0 6px 6px 0;background:rgba(255,255,255,.06);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🗓️ Меню на 7 дней</h1>
+    <div class="sub">Для @Didinap • Хашимото + ГЭРБ • 3+1 приёма • без каш на завтрак • готовка до 20 мин (AirFryer)</div>
+
+    <div class="grid">
+      <section class="card">
+        <div class="day"><h3>День 1</h3><div class="row"><span class="lbl">Завтрак:</span> Омлет 2 яйца + тост + огурец</div><div class="row"><span class="lbl">Обед:</span> Курица AirFryer + гречка + брокколи</div><div class="row"><span class="lbl">Перекус:</span> Йогурт + миндаль</div><div class="row"><span class="lbl">Ужин:</span> Тунец + запечённые кабачки + немного киноа</div></div>
+        <div class="day"><h3>День 2</h3><div class="row"><span class="lbl">Завтрак:</span> Тост + авокадо + яйцо</div><div class="row"><span class="lbl">Обед:</span> Зубатка + рис + тёплая свёкла</div><div class="row"><span class="lbl">Перекус:</span> Груша + орехи</div><div class="row"><span class="lbl">Ужин:</span> Курица + цветная капуста + ложка йогурта</div></div>
+        <div class="day"><h3>День 3</h3><div class="row"><span class="lbl">Завтрак:</span> Йогурт + банан + орехи + яйцо</div><div class="row"><span class="lbl">Обед:</span> Говядина AirFryer + булгур + морковь</div><div class="row"><span class="lbl">Перекус:</span> Яблоко + миндаль</div><div class="row"><span class="lbl">Ужин:</span> Омлет + брокколи</div></div>
+        <div class="day"><h3>День 4</h3><div class="row"><span class="lbl">Завтрак:</span> Яйца + тост + авокадо</div><div class="row"><span class="lbl">Обед:</span> Индейка + кускус + кабачок</div><div class="row"><span class="lbl">Перекус:</span> Груша + йогурт</div><div class="row"><span class="lbl">Ужин:</span> Тунец + тёплые овощи</div></div>
+        <div class="day"><h3>День 5</h3><div class="row"><span class="lbl">Завтрак:</span> Омлет + тост + огурец</div><div class="row"><span class="lbl">Обед:</span> Курица + чечевица + брокколи</div><div class="row"><span class="lbl">Перекус:</span> Йогурт + орехи</div><div class="row"><span class="lbl">Ужин:</span> Рыба + цветная капуста</div></div>
+        <div class="day"><h3>День 6</h3><div class="row"><span class="lbl">Завтрак:</span> Тост + творог/йогурт + яйцо</div><div class="row"><span class="lbl">Обед:</span> Говядина + гречка + морковь</div><div class="row"><span class="lbl">Перекус:</span> Груша</div><div class="row"><span class="lbl">Ужин:</span> Курица + кабачок</div></div>
+        <div class="day"><h3>День 7</h3><div class="row"><span class="lbl">Завтрак:</span> Яйца + тост + авокадо</div><div class="row"><span class="lbl">Обед:</span> Рыба + рис + брокколи</div><div class="row"><span class="lbl">Перекус:</span> Йогурт + яблоко</div><div class="row"><span class="lbl">Ужин:</span> Курица + тёплая свёкла/цветная</div></div>
+      </section>
+
+      <aside class="card">
+        <h3 style="margin-top:0">🛒 Список продуктов на неделю</h3>
+        <div class="small">(на 1 человека, ориентир)</div>
+        <h4>Белок</h4>
+        <ul>
+          <li>Курица/индейка: 1.8–2.2 кг</li>
+          <li>Рыба (зубатка/белая): 1.2–1.5 кг</li>
+          <li>Тунец консерв.: 3–4 банки</li>
+          <li>Говядина: 700–900 г</li>
+          <li>Яйца: 16–20 шт</li>
+          <li>Йогурт/творог: 2.5–3 кг суммарно</li>
+        </ul>
+        <h4>Крупы/гарниры</h4>
+        <ul>
+          <li>Гречка: 400–500 г</li>
+          <li>Рис: 400–500 г</li>
+          <li>Киноа: 250–300 г</li>
+          <li>Булгур: 250–300 г</li>
+          <li>Кускус: 250–300 г</li>
+          <li>Чечевица: 350–450 г</li>
+          <li>Тост цельнозерн.: 1–2 уп.</li>
+        </ul>
+        <h4>Овощи/фрукты/жиры</h4>
+        <ul>
+          <li>Брокколи: 1.5–2 кг</li>
+          <li>Кабачки: 1.2–1.6 кг</li>
+          <li>Цветная капуста: 1–1.5 кг</li>
+          <li>Свёкла: 0.8–1.2 кг</li>
+          <li>Морковь: 1 кг</li>
+          <li>Огурцы: 0.8–1.2 кг</li>
+          <li>Помидоры: 0.4–0.7 кг (умеренно)</li>
+          <li>Яблоки/груши/бананы: 3.5–4.5 кг суммарно</li>
+          <li>Авокадо: 4–6 шт</li>
+          <li>Орехи/миндаль: 300–400 г</li>
+          <li>Тахини: 1 банка</li>
+          <li>Оливковое масло: 1 бутылка</li>
+          <li>Йодированная соль</li>
+        </ul>
+        <div style="margin-top:10px">
+          <span class="k">Хашимото-friendly</span><span class="k">ГЭРБ-friendly</span><span class="k">AirFryer ≤20 мин</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
